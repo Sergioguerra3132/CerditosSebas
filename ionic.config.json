@@ -1,0 +1,7 @@
+{
+  "name": "calculadora-cotizaciones",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
