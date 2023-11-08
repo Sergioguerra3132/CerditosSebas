@@ -1,20 +1,38 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Calculadora de Cotizaciones
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Nombre del cliente</ion-label>
+    <ion-input [(ngModel)]="nombreCliente"></ion-input>
+  </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-item>
+    <ion-label position="stacked">Cantidad de cerdos a comprar</ion-label>
+    <ion-input type="number" [(ngModel)]="cantidadCerdos" (ngModelChange)="actualizarCerdos()"></ion-input>
+  </ion-item>
+
+  <div *ngFor="let i of cerdos">
+    <ion-item>
+      <ion-label position="stacked">Peso del cerdo {{ i }}</ion-label>
+      <ion-input type="number" [(ngModel)]="pesos[i]"></ion-input>
+    </ion-item>
+  </div>
+
+  <ion-item>
+    <ion-label position="stacked">Precio por kilo</ion-label>
+    <ion-input type="number" [(ngModel)]="precioPorKilo"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="calcularPrecio()">Calcular Precio</ion-button>
+
+  <div class="result" *ngIf="resultadoPrecio">
+    Precio total: ${{ resultadoPrecio | number:'1.2-2' }}
+    <ion-button expand="full" (click)="generarDocumentoPDF()">Generar Documento</ion-button>
   </div>
 </ion-content>

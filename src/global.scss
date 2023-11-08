@@ -24,3 +24,21 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+/* Estilos para centrar contenido vertical y horizontalmente */
+ion-content {
+    --background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% de la altura de la ventana */
+  }
+  
+  /* Estilos para centrar texto en elementos */
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Otras reglas globales pueden ir aquí */
+  
+  
